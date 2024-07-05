@@ -1,0 +1,26 @@
+.itemLista {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1{
+  font-size: 1rem;
+}
+
+.descricaoItem{
+  font-size: 1rem;
+  width: 20rem;
+}
+
+.instituicaoItem{
+  font-size: 1rem;
+  width: 5rem;
+}
+
+.cpfItem{
+  font-size: 1rem;
+  width: 5rem;
+}

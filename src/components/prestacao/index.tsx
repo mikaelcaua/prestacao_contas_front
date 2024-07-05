@@ -1,38 +1,70 @@
-import IPrestacao from '../../types/IPrestacao'
+import IPrestacao from "../../types/IPrestacao";
+import style from "./style.module.css";
+export default function Prestacao({
+	descricao,
+	instituicao,
+	cpf,
+	tipoPagamento,
+	dataInicial,
+	formaPagamento,
+	dataFinal,
+	valor,
+	mes,
+	ano,
+}: IPrestacao) {
+	// descricao,instituicao,cpf,tipoPagamento,dataInicial,formaPagamento,dataFinal,valor,mes,ano
+	return (
+		<li className={style.itemLista}>
 
-export default function Prestacao({descricao,instituicao,cpf,tipoPagamento,dataInicial,formaPagamento,dataFinal,valor,mes,ano}:IPrestacao){
-    // descricao,instituicao,cpf,tipoPagamento,dataInicial,formaPagamento,dataFinal,valor,mes,ano
-    return(
-        <li>
-            <h1>Descricao</h1>
-            <p>{descricao}</p>
+			<div className={style.descricaoItem}>
+				<h1 >Descricao</h1>
+				<p>{descricao}</p>
+			</div>
 
-            <h1>Instuticao</h1>
-            <p>{instituicao}</p>
+			<div className={style.instituicaoItem}>
+				<h1>Instuticao</h1>
+				<p>{instituicao}</p>
+			</div>
 
-            <h1>CPF</h1>
-            <p>{cpf}</p>
+			<div className={style.cpfItem}>
+				<h1>CPF</h1>
+				<p>{cpf}</p>
+			</div>
 
-            <h1>Tipo de Pagamento</h1>
-            <p>{tipoPagamento}</p>
+			<div>
+				<h1>Tipo de Pagamento</h1>
+				<p>{tipoPagamento}</p>
+			</div>
 
-            <h1>Data Inicial</h1>
-            <p>{dataInicial}</p>
+			<div>
+				<h1>Data Inicial</h1>
+				<p>{dataInicial}</p>
+			</div>
 
-            <h1>Data Final</h1>
-            <p>{dataFinal}</p>
+			<div>
+				<h1>Data Final</h1>
+				<p>{dataFinal}</p>
+			</div>
 
-            <h1>Forma Pagamento</h1>
-            <p>{formaPagamento}</p>
+			<div>
+				<h1>Forma Pagamento</h1>
+				<p>{formaPagamento}</p>
+			</div>
 
-            <h1>Valor</h1>
-            <p>{valor}</p>
+			<div>
+				<h1>Valor</h1>
+				<p>{valor}</p>
+			</div>
 
-            <h1>Mês</h1>
-            <p>{mes}</p>
+			<div>
+				<h1>Mês</h1>
+				<p>{mes}</p>
+			</div>
 
-            <h1>Ano</h1>
-            <p>{ano}</p>
-        </li>
-    )
+			<div>
+				<h1>Ano</h1>
+				<p>{ano}</p>
+			</div>
+		</li>
+	);
 }

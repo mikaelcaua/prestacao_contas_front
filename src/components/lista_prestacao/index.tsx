@@ -8,7 +8,7 @@ function ListaPrestacao() {
 
     useEffect(() => {
         async function fetchPrestacoes() {
-            const data = await getPrestacoes();  // Chamando a função getPrestacoes
+            const data = await getPrestacoes();
             setPrestacoes(data);
         }
         fetchPrestacoes();
