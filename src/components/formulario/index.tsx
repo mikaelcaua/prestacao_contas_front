@@ -116,6 +116,7 @@ export default function Formulario() {
                     required
                     type="number"
                     id="valor"
+                    min="0"
                     value={dadosForm.valor}
                     onChange={handleChange}
                 />
@@ -127,6 +128,8 @@ export default function Formulario() {
                     required
                     type="number"
                     id="mes"
+                    min="1"
+                    max="12"
                     value={dadosForm.mes}
                     onChange={handleChange}
                 />
@@ -138,6 +141,8 @@ export default function Formulario() {
                     required
                     type="number"
                     id="ano"
+                    min="2023"
+                    max="2025"
                     value={dadosForm.ano}
                     onChange={handleChange}
                 />
