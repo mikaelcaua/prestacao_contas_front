@@ -28,14 +28,14 @@ export default function Prestacao({
 			{/* <div className={style.cpfItem}>
 				<h1>CPF</h1>
 				<p>{cpf}</p>
-			</div> */}
+			</div>
 
-			{/* <div>
+			<div>
 				<h1>Tipo de Pagamento</h1>
 				<p>{tipoPagamento}</p>
-			</div> */}
+			</div>
 
-			{/* <div>
+			<div>
 				<h1>Data Inicial</h1>
 				<p>{dataInicial}</p>
 			</div>
@@ -43,9 +43,9 @@ export default function Prestacao({
 			<div>
 				<h1>Data Final</h1>
 				<p>{dataFinal}</p>
-			</div> */}
+			</div>
 
-			{/* <div>
+			<div>
 				<h1>Forma Pagamento</h1>
 				<p>{formaPagamento}</p>
 			</div> */}
