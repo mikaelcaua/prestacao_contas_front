@@ -12,7 +12,6 @@ export default function Prestacao({
 	mes,
 	ano,
 }: IPrestacao) {
-	// descricao,instituicao,cpf,tipoPagamento,dataInicial,formaPagamento,dataFinal,valor,mes,ano
 	return (
 		<li className={style.itemLista}>
 
@@ -26,17 +25,17 @@ export default function Prestacao({
 				<p>{instituicao}</p>
 			</div>
 
-			<div className={style.cpfItem}>
+			{/* <div className={style.cpfItem}>
 				<h1>CPF</h1>
 				<p>{cpf}</p>
-			</div>
+			</div> */}
 
-			<div>
+			{/* <div>
 				<h1>Tipo de Pagamento</h1>
 				<p>{tipoPagamento}</p>
-			</div>
+			</div> */}
 
-			<div>
+			{/* <div>
 				<h1>Data Inicial</h1>
 				<p>{dataInicial}</p>
 			</div>
@@ -44,12 +43,12 @@ export default function Prestacao({
 			<div>
 				<h1>Data Final</h1>
 				<p>{dataFinal}</p>
-			</div>
+			</div> */}
 
-			<div>
+			{/* <div>
 				<h1>Forma Pagamento</h1>
 				<p>{formaPagamento}</p>
-			</div>
+			</div> */}
 
 			<div>
 				<h1>Valor</h1>

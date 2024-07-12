@@ -1,8 +1,10 @@
-import { useState } from "react"
-import postPrestacoes from "../../service/postPrestacoes"
-import IPrestacao from "../../types/IPrestacao"
-export default function Formulario(){
-    let [dadosForm, setDadosForm] = useState<IPrestacao>({
+import { useState } from "react";
+import postPrestacoes from "../../service/postPrestacoes";
+import IPrestacao from "../../types/IPrestacao";
+import style from "./style.module.scss";
+
+export default function Formulario() {
+    const [dadosForm, setDadosForm] = useState<IPrestacao>({
         descricao: '',
         instituicao: '',
         cpf: '',
@@ -14,122 +16,134 @@ export default function Formulario(){
         mes: '',
         ano: '',
     });
-    return(
-        <form onSubmit={e => {
-            e.preventDefault()
-            postPrestacoes(dadosForm)
-        }}>
-            <input
-                type="text"
-                id="descricao"
-                value={dadosForm.descricao}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        descricao: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="instituicao"
-                value={dadosForm.instituicao}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        instituicao: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="cpf"
-                value={dadosForm.cpf}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        cpf: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="tipoPagamento"
-                value={dadosForm.tipoPagamento}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        tipoPagamento: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="dataInicial"
-                value={dadosForm.dataInicial}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        dataInicial: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="formaPagamento"
-                value={dadosForm.formaPagamento}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        formaPagamento: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="dataFinal"
-                value={dadosForm.dataFinal}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        dataFinal: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="valor"
-                value={dadosForm.valor}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        valor: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="mes"
-                value={dadosForm.mes}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        mes: e.target.value
-                    }))
-                }
-            />
-            <input
-                type="text"
-                id="ano"
-                value={dadosForm.ano}
-                onChange={(e) =>
-                    setDadosForm((prevDadosForm) => ({
-                        ...prevDadosForm,
-                        ano: e.target.value
-                    }))
-                }
-            />
-            <button type="submit">Botao</button>
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { id, value } = e.target;
+        console.log(value)
+        setDadosForm((prevDadosForm) => ({
+            ...prevDadosForm,
+            [id]: value,
+        }));
+    };
+
+    return (
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            postPrestacoes(dadosForm);
+        }} className={style.form}>
+            <div className={style.formGroup}>
+                <label htmlFor="descricao">Descrição</label>
+                <textarea
+                    id="descricao"
+                    value={dadosForm.descricao}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="instituicao">Instituição</label>
+                <input 
+                    required
+                    type="text"
+                    id="instituicao"
+                    value={dadosForm.instituicao}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="cpf">CPF</label>
+                <input 
+                    required
+                    type="text"
+                    id="cpf"
+                    value={dadosForm.cpf}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="tipoPagamento">Tipo de Pagamento</label>
+                <input 
+                    required
+                    type="text"
+                    id="tipoPagamento"
+                    value={dadosForm.tipoPagamento}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="formaPagamento">Forma de Pagamento</label>
+                <input 
+                    required
+                    type="text"
+                    id="formaPagamento"
+                    value={dadosForm.formaPagamento}
+                    onChange={handleChange}
+                />
+            </div>
+
+            
+            <div className={style.formGroup}>
+                <label htmlFor="dataInicial">Data Inicial</label>
+                <input 
+                    required
+                    type="date"
+                    id="dataInicial"
+                    min="2023-01-01"
+                    value={dadosForm.dataInicial}
+                    onChange={handleChange}
+                />
+            </div>
+        
+            <div className={style.formGroup}>
+                <label htmlFor="dataFinal">Data Final</label>
+                <input 
+                    required
+                    type="date"
+                    id="dataFinal"
+                    min="2023-01-01"
+                    value={dadosForm.dataFinal}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="valor">Valor</label>
+                <input 
+                    required
+                    type="number"
+                    id="valor"
+                    value={dadosForm.valor}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="mes">Mês</label>
+                <input 
+                    required
+                    type="number"
+                    id="mes"
+                    value={dadosForm.mes}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={style.formGroup}>
+                <label htmlFor="ano">Ano</label>
+                <input 
+                    required
+                    type="number"
+                    id="ano"
+                    value={dadosForm.ano}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <button type="submit">Enviar</button>
         </form>
-    )
+    );
 }
